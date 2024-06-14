@@ -27,7 +27,7 @@ ENV VIRTUAL_ENV=/app/.venv \
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 # REPLACE: project names here
-COPY example_project example_project
+COPY src src
 
 # REPLACE: run command here
 ENTRYPOINT ["python", "-m", "wallet.main"]

@@ -9,10 +9,10 @@ exclude = [
 profile = "black"
 
 [tool.poetry]
-name = "example_project"
-version = "1.0.1"
+name = "git-actions-test-python"
+version = "1.0.0"
 description = "Test project for a Python CI using Github Actions"
-authors = ["Your Name <you@example.com>"]
+authors = ["Anthony Seager <Anthony@seager.com.au>"]
 license = "MIT"
 readme = "README.md"
 
