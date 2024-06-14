@@ -78,14 +78,14 @@ runs:
         echo "cache_key_pipx=pipx-${{ runner.os }}-${{ inputs.python_version }}-$BASE64_PIPX_ID" >> $GITHUB_OUTPUT
       shell: bash
 
-    - name: Cache pipx
-      id: cache_pipx
-      uses: actions/cache@v3
-      with:
-        path: |
-          ${{ steps.variable_setup.outputs.pipx_home }}
-          ${{ steps.variable_setup.outputs.pipx_bin_dir }}
-        key: ${{ steps.variable_setup.outputs.cache_key_pipx }}
+    # - name: Cache pipx
+    #   id: cache_pipx
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: |
+    #       ${{ steps.variable_setup.outputs.pipx_home }}
+    #       ${{ steps.variable_setup.outputs.pipx_bin_dir }}
+    #     key: ${{ steps.variable_setup.outputs.cache_key_pipx }}
 
 
     - name: Install Poetry ${{ inputs.poetry_version }} and '${{ steps.variable_setup.outputs.pipx_packages }}'
