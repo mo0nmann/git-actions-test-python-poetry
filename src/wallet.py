@@ -23,7 +23,7 @@ class Wallet(object):
         """Initializes the wallet with an initial amount.
 
         Args:
-            initial_amount (int, optional): Initial amount of cash in the 
+            initial_amount (int, optional): Initial amount of cash in the
             wallet.
                 Defaults to 0.
         """
