@@ -51,6 +51,24 @@ runs:
   using: 'composite'
   steps:
 
+    - name: Get branch names.
+      id: branch-names
+      uses: tj-actions/branch-names@v8
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0   
+
+    - name: Validate conventional commits
+      uses: wagoid/commitlint-github-action@v6    
+
+    - name: Scan for secrets
+      uses: gitleaks/gitleaks-action@v2
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        GITLEAKS_LICENSE: ${{ inputs.gitleaks_token }}
+
     - name: Setup Variables for pipx caching
       id: variable_setup
       run: |
@@ -181,10 +199,6 @@ runs:
       shell: bash
       run: |
         sudo rm -rf .scannerwork
-
-    - name: Get branch names.
-      id: branch-names
-      uses: tj-actions/branch-names@v8
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
